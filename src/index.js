@@ -1,7 +1,7 @@
 module.exports = function check(str, bracketsConfig) {
   let brackets = null;
 
-  for (let i = 0; i < bracketsConfig.length; i++) {
+  for (let i = 0; i < bracketsConfig.length;) {
       brackets = bracketsConfig[i].join('');
       if (str.includes(brackets)) {
         str = str.replace(brackets, '')
@@ -9,7 +9,7 @@ module.exports = function check(str, bracketsConfig) {
   
       }
       else {
-        continue;
+        i++;
       }
   }
   return !Boolean(str)
